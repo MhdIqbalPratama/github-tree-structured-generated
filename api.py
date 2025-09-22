@@ -1,6 +1,7 @@
 import requests
 import re
-from fastapi import FastAPI, HTTPException, RedirectResponse
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import RedirectResponse
 from dto.github import GitHubTreeRequest
 from helper.utils import Helper
 from fastapi.responses import PlainTextResponse
