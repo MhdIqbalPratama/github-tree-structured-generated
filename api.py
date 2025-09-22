@@ -1,6 +1,6 @@
 import requests
 import re
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, RedirectResponse
 from dto.github import GitHubTreeRequest
 from helper.utils import Helper
 from fastapi.responses import PlainTextResponse
@@ -18,7 +18,8 @@ app = FastAPI(
 # --- Root Endpoint (for welcome message) ---
 @app.get("/")
 async def read_root():
-    return {"message": "Welcome to the GitHub Repository Tree Generator API. Navigate to /docs to see the interactive Swagger UI."}
+    # return {"message": "Welcome to the GitHub Repository Tree Generator API. Navigate to /docs to see the interactive Swagger UI."}
+    return RedirectResponse(url="/docs")
 
 
 @app.post("/tree", summary="Generate Repository Tree (Text Output)", response_class=PlainTextResponse)
